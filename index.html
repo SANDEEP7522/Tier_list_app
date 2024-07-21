@@ -1,33 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tier List App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <h1>Tier List App....</h1>
-
-    <form action="">
-        <label for="tier">tier</label>
-        <input type="text" id="tier" name="tier" placeholder="Give the tier name..."  value="SupperHero">
-        <br>
-        <button type="button" value="sumit" id="sumit">click me</button>
-   
-    </form>
-
-    <section id="tier-list-section">
-        <div class="tier-list">
-            <h1>Sample Tier List </h1>
-              <div class="line"></div>  
-            <div class="tier-list-items">
-            </div>
-        </div>
-    </section>
-    <script src="script.js"></script>
-</body>
-
-</html>
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Tier List App</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ 
+ <body>
+     <h1>Tier List App....</h1>
+ 
+     <form action="">
+         <label for="tier">tier</label>
+         <input type="text" id="tier" name="tier" placeholder="Enter tier name...">
+         <button type="button" value="submit" id="tier-submit">click me</button>
+     </form>
+     <hr>
+ 
+     <form id="img-form">
+         <label for="img-item">tier</label>
+         <input type="text" id="img-item" name="tier" placeholder="Enter tier URL name...">
+         <button type="button" value="submit" id="img-submit">click me</button>
+     </form>
+     <hr>
+ 
+     <section id="tier-list-section">
+         <!-- Tier list items will be appended here -->
+     </section>
+ 
+     <section id="item-section-container">
+         <div class="item-container">
+             <img src="https://images.indianexpress.com/2018/04/avengers-iron-man.jpg?w=350" alt="" class="imageUrl">
+         </div>
+     </section>
+ 
+     <script src="script.js"></script>
+ </body>
+ 
+ </html>
+ 
