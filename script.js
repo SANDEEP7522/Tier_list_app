@@ -1,12 +1,21 @@
-
-
+let currentDtaggedItem;
 
 const tierInput = document.getElementById('tier');
- console.log(tierInput);
+//  console.log(tierInput);
+
+const itemContainers = document.getElementsByClassName('item-container');
 
 const submitTierBtn = document.getElementById('submit-tier');
 const submitImgBtn = document.getElementById('submit-img');
 const imgForm = document.getElementById('img-form');
+
+
+for(const itemContainer of itemContainers){
+    setUpItemContainerForDrag(itemContainer);
+}
+
+ //TierLists.forEach(setUpDropZoneInTierList);
+
 
 submitImgBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -49,23 +58,30 @@ function createTierList(tierListName) {
     newTierListItems.classList.add('tier-list-items');  
     newTierList.appendChild(newTierListItems); 
 
-    const newTierListItemsForLine = document.createElement('div');
-    newTierListItemsForLine.classList.add('line');
-    newTierList.appendChild(newTierListItemsForLine);
+    //  const newTierListItemsForLine = document.createElement('div');
+    //  newTierListItemsForLine.classList.add('line');
+    // newTierList.appendChild(newTierListItemsForLine);
 
-    const tierSection = document.getElementById('tier-list-section');
+   const tierSection = document.getElementById('tier-list-section');
     
     if (tierSection) {
         tierSection.appendChild(newTierList);
     } else {
         console.error('tier-list-section element not found');
     }
+
+    
+ setUpDropZoneInTierListItem(newTierListItems);
+
 }
 
 function createTierListItemUrl(imageUrl) {
     const imageDiv = document.createElement('div');
+    imageDiv.setAttribute('draggable', 'ture');
     imageDiv.classList.add('item-container');
  
+    setUpItemContainerForDrag(imageDiv);
+
     const img = document.createElement('img');
     img.src = imageUrl;
 
@@ -79,4 +95,29 @@ function createTierListItemUrl(imageUrl) {
         console.error('item-section-container element not found');
     }
     
+}
+
+function setUpItemContainerForDrag(itemContainer) {
+   itemContainer.addEventListener('dragstart', (event) => {
+    console.log(event.target.parentNode); // .parentNode to drag&drop parent node  
+    currentDtaggedItem = event.target.parentNode;
+    });
+}
+
+function setUpDropZoneInTierListItem(tierListItems) {
+    console.log("setup zone", tierListItems);
+    tierListItems.addEventListener('drop', (event) => {
+    event.preventDefault(); // stops the default behavier of the event which is to not allow drop
+
+});
+    tierListItems.addEventListener('dragover',
+      function (event)  {
+    console.log("droped over the zone");
+   // console.log(event.target);
+       //event.target.appendChild(currentDtaggedItem);
+    console.log("event coming up", event);  
+    if (this !== currentDtaggedItem.parentNode) {
+        this.appendChild(currentDtaggedItem);
+    }  
+ });
 }

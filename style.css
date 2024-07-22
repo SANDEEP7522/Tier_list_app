@@ -37,3 +37,8 @@ padding-right: 10px;
 section#item-section-container {
     display: flex;
 }
+.tier-list-items {
+    min-width: 50%;
+    display: flex;
+}
+
