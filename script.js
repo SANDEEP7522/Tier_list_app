@@ -2,7 +2,7 @@
 
 
 const tierInput = document.getElementById('tier');
-console.log(tierInput);
+ console.log(tierInput);
 
 const submitTierBtn = document.getElementById('submit-tier');
 const submitImgBtn = document.getElementById('submit-img');
@@ -13,10 +13,14 @@ submitImgBtn.addEventListener('click', (event) => {
     console.log("form submitted");
 
     const imgItemInput = document.getElementById('img-item');
-    const imageUrl = imgItemInput.value;
-    console.log(imageUrl);
-
-    createTierListItemUrl(imageUrl);
+    if (imgItemInput.value === '') {
+     alert('please enter your URL');
+     return;   
+    }
+     const imageUrl = imgItemInput.value;
+     createTierListItemUrl(imageUrl);
+     imgItemInput.value = '';
+   
 });
 
 submitTierBtn.addEventListener('click', (event) => {
@@ -69,9 +73,10 @@ function createTierListItemUrl(imageUrl) {
 
     const nonTierSection = document.getElementById('item-section-container');
     
-    if (nonTierSection) {
+     if (nonTierSection) {
         nonTierSection.appendChild(imageDiv);
     } else {
         console.error('item-section-container element not found');
     }
+    
 }

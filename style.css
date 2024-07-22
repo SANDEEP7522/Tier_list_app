@@ -27,8 +27,13 @@ padding-right: 10px;
 .item-container{
     width: 100px;
     height: 100px;
+ 
 }
 .item-container > img {
     width: 100%;
     height: 100%;
+  
+}
+section#item-section-container {
+    display: flex;
 }
