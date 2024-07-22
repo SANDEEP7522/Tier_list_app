@@ -1,35 +1,33 @@
 
 
+
 const tierInput = document.getElementById('tier');
 console.log(tierInput);
 
-const submitBtn = document.getElementById('submit');
-
+const submitTierBtn = document.getElementById('submit-tier');
+const submitImgBtn = document.getElementById('submit-img');
 const imgForm = document.getElementById('img-form');
 
-imgForm.addEventListener('click', (event) => {
+submitImgBtn.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("form submitted");
 
     const imgItemInput = document.getElementById('img-item');
-    
     const imageUrl = imgItemInput.value;
     console.log(imageUrl);
 
     createTierListItemUrl(imageUrl);
 });
 
-submitBtn.addEventListener('click', (event) => {
+submitTierBtn.addEventListener('click', (event) => {
     console.log("button is clicked");
     event.preventDefault(); // stops the default behaviour of the event
 
-    // to get access of the element on which this event was fired
-    const target = event.target;
     console.log(tierInput.value);
 
     if (tierInput.value === '') {
         alert('Please enter a tier name');
-        return;
+        return;// when you give nothing then give the alert
     }
     createTierList(tierInput.value);
     tierInput.value = '';
@@ -52,18 +50,28 @@ function createTierList(tierListName) {
     newTierList.appendChild(newTierListItemsForLine);
 
     const tierSection = document.getElementById('tier-list-section');
-    tierSection.appendChild(newTierList);
+    
+    if (tierSection) {
+        tierSection.appendChild(newTierList);
+    } else {
+        console.error('tier-list-section element not found');
+    }
 }
 
 function createTierListItemUrl(imageUrl) {
     const imageDiv = document.createElement('div');
     imageDiv.classList.add('item-container');
-
+ 
     const img = document.createElement('img');
     img.src = imageUrl;
 
     imageDiv.appendChild(img);
 
     const nonTierSection = document.getElementById('item-section-container');
-    nonTierSection.appendChild(imageDiv);
+    
+    if (nonTierSection) {
+        nonTierSection.appendChild(imageDiv);
+    } else {
+        console.error('item-section-container element not found');
+    }
 }
