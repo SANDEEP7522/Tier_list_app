@@ -1,15 +1,37 @@
 #tier{
     padding: 5px;
 }
+h1 {
+    font-family: serif;
+    font-size: 7vh;
+    text-shadow: 4px 2px 1px rgb(146, 26, 26);
+}
+button#submit-tier, #submit-img {
+    height: 3.8vh;
+    border-radius: 11px;
+    background-color: #7ff00f;
+}
+input#tier, input#img-item{
+    height: 3vh;
+    background-color: rgb(224, 224, 236);
+}
 .tier-list{
     border: 1px solid #000;
     border-radius: 25px;
-    margin-top: 2rem;
-    padding: 1rem;
+    margin-top: 0.5rem;
+   /*  padding: 1rem; */
     display: flex;
+    height: 100px;
 }
-h1 {
+h2 {
 padding-right: 10px;
+padding-right: 10px;
+background-color: #ff7f7f;
+margin: 1px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 25px 2px 2px 25px;
 }
 .line{
     justify-content: center;
@@ -27,12 +49,14 @@ padding-right: 10px;
 .item-container{
     width: 100px;
     height: 100px;
+    margin: 2px;
+
  
 }
 .item-container > img {
     width: 100%;
     height: 100%;
-  
+    border-radius: 1.5vh;
 }
 section#item-section-container {
     display: flex;
@@ -42,3 +66,15 @@ section#item-section-container {
     display: flex;
 }
 
+#tier:hover, #img-item:hover {
+    background-color: yellow;
+    height: 2.5vh;
+    border: 2px solid black;
+    box-shadow: 8px 5px 8px 0px rgb(155, 78, 78);
+  }
+  #submit-tier:hover, #submit-img:hover {
+    background-color: red;
+    height: 4.5vh;
+    border: 2px solid black;
+    box-shadow: 8px 5px 8px 0px rgb(155, 78, 78);
+  }

@@ -50,7 +50,7 @@ function createTierList(tierListName) {
     const newTierList = document.createElement('div');
     newTierList.classList.add('tier-list');
 
-    const heading = document.createElement('h1');
+    const heading = document.createElement('h2');
     heading.textContent = tierListName;
     newTierList.appendChild(heading);
 
